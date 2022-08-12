@@ -1,12 +1,14 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IndexControllerTest {
@@ -21,6 +23,7 @@ class IndexControllerTest {
     void index() {
         assertEquals("index",indexController.index());
         assertEquals("index",indexController.index(),"Wrong name");
+        assertThat(indexController.index()).isEqualTo("index");
     }
 
     @Test
@@ -31,7 +34,7 @@ class IndexControllerTest {
             indexController.oupsHandler();
         });
     }
-
+@Disabled
     @Test//Runs in single thread so it runs the supplier irrespective of timeout
     void timeoutTest(){
         assertTimeout(Duration.ofMillis(100),
@@ -40,6 +43,7 @@ class IndexControllerTest {
                     System.out.println("I am here");
                 });
     }
+    @Disabled
     @Test//Runs in different thread , obe=serve test exec time
     void timeoutTestPreempt(){
         assertTimeoutPreemptively(Duration.ofMillis(100),
