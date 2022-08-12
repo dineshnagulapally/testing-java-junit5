@@ -31,14 +31,5 @@ class PersonTest implements ModelInterface {
         );
     }
 
-    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} out of {totalRepetitions}")
-    @DisplayName("My Repitition")
-    void repetitionTest(){
-        System.out.println("repeat sometimes");
-    }
 
-    @RepeatedTest(5)
-    void myRepeatedTestUsingDI(TestInfo testInfo,RepetitionInfo repetitionInfo){
-        System.out.println(testInfo.getDisplayName()+" : "+ repetitionInfo.getCurrentRepetition());
-    }
 }
