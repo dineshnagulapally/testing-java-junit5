@@ -1,9 +1,10 @@
 package guru.springframework.sfgpetclinic.model;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Tag("model")
 class PersonTest {
 
     @Test
@@ -25,7 +26,7 @@ class PersonTest {
 
         //then
         assertAll("Test prop set",
-                ()->assertEquals("Joe1",person.getFirstName(),"First name is not valid"),
+                ()->assertEquals("Joe",person.getFirstName(),"First name is not valid"),
                 ()->assertEquals("Buck",person.getLastName())
         );
     }
