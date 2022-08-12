@@ -34,7 +34,6 @@ class PersonTest implements ModelInterface {
         );
     }
 
-    @Test
     @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} out of {totalRepetitions}")
     @DisplayName("My Repitition")
     void repetitionTest(){
