@@ -1,10 +1,7 @@
 package guru.springframework.sfgpetclinic.model;
 
 import guru.springframework.sfgpetclinic.ModelInterface;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,5 +35,10 @@ class PersonTest implements ModelInterface {
     @DisplayName("My Repitition")
     void repetitionTest(){
         System.out.println("repeat sometimes");
+    }
+
+    @RepeatedTest(5)
+    void myRepeatedTestUsingDI(TestInfo testInfo,RepetitionInfo repetitionInfo){
+        System.out.println(testInfo.getDisplayName()+" : "+ repetitionInfo.getCurrentRepetition());
     }
 }
