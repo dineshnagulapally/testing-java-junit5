@@ -27,8 +27,9 @@ class OwnerTest {
                         ()->assertEquals("Key Westa",owner.getCity(),"City issue"),
                         ()->assertEquals("123123464",owner.getTelephone())
                         );
-                };
-                assertThat(owner.getCity(),is("Key West"));
+                }
+
         );
+        assertThat(owner.getCity(),is("Key West"));
     }
 }
