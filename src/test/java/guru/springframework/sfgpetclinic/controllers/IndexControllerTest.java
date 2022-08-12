@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.controllers;
 
+import guru.springframework.Controller;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
 
@@ -7,8 +8,8 @@ import java.time.Duration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-@Tag("controller")
-class IndexControllerTest {
+
+class IndexControllerTest implements Controller {
     IndexController indexController;
     @BeforeEach
     void setUp() {
