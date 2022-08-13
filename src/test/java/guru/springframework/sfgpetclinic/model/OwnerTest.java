@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import guru.springframework.CustomArgumentProvider;
 import guru.springframework.sfgpetclinic.ModelInterface;
 import guru.springframework.sfgpetclinic.controllers.OwnerType;
 import org.junit.jupiter.api.DisplayName;
@@ -84,5 +85,12 @@ class OwnerTest implements ModelInterface {
                 Arguments.of("MI",1,2),
                 Arguments.of("VI",1,3)
         );
+    }
+
+    @DisplayName("Custom arg provider")
+    @ParameterizedTest(name = "{displayName} [{index}] {arguments}" )
+    @ArgumentsSource(CustomArgumentProvider.class)
+    void customArgProvider(String state, int v1, int v2){
+        System.out.println(state+" "+v1+" "+v2);
     }
 }
