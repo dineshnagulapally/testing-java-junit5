@@ -27,13 +27,13 @@ class OwnerTest implements ModelInterface {
                 ()->{
                     assertAll("Person props"
                     ,
-                            ()->assertEquals("Joea",owner.getFirstName(),"First name issue"),
+                            ()->assertEquals("Joe",owner.getFirstName(),"First name issue"),
                             ()->assertEquals("Buck",owner.getLastName())
                     );
                 },
                 ()->{
                 assertAll("Owner props",
-                        ()->assertEquals("Key Westa",owner.getCity(),"City issue"),
+                        ()->assertEquals("Key West",owner.getCity(),"City issue"),
                         ()->assertEquals("123123464",owner.getTelephone())
                         );
                 }
