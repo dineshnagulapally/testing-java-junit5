@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -52,5 +53,15 @@ class OwnerTest implements ModelInterface {
     @EnumSource(OwnerType.class)
     void enumTest(OwnerType ownerType){
         System.out.println(ownerType);
+    }
+
+    @ParameterizedTest(name = "{displayName} [{index}] {arguments}")
+    @DisplayName("CSV test source")
+    @CsvSource({
+            "MO,1,1",
+            "MA,2,2"
+    })
+    void csvSource(String state,int v1, int v2){
+        System.out.println(state + " - "+ v1+" "+v2);
     }
 }
