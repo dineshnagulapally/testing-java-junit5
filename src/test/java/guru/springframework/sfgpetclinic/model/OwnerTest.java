@@ -6,10 +6,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -71,5 +70,19 @@ class OwnerTest implements ModelInterface {
     @CsvFileSource(resources = "/inp.csv",numLinesToSkip = 1)
     void csvTestFileSource(String state, int v1, int v2){
         System.out.println(state+" "+v1+" "+v2);
+    }
+
+    @DisplayName("Method source test")
+    @ParameterizedTest(name = "{displayName} [{index}] {arguments}" )
+    @MethodSource("getargs")
+    void methodSourceTest(String state, int v1, int v2){
+        System.out.println(state+" "+v1+" "+v2);
+    }
+
+    static Stream<Arguments> getargs(){
+        return Stream.of(
+                Arguments.of("MI",1,2),
+                Arguments.of("VI",1,3)
+        );
     }
 }
